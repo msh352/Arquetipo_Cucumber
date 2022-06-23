@@ -1,0 +1,70 @@
+defaultTasks 'clean', 'test', 'aggregate'
+
+repositories {
+    mavenCentral()
+    //mavenLocal()
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        //mavenLocal()
+    }
+    dependencies {
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.4.24")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'net.serenity-bdd.aggregator'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    slf4jVersion = '1.7.7'
+    serenityCoreVersion = '2.4.34'
+    serenityCucumberVersion = '2.4.34'
+    serenityRestAssured = '2.4.34'
+    junitVersion = '4.13.1'
+    assertJVersion = '3.8.0'
+    logbackVersion = '1.2.3'
+    jsonVersion = '20210307'
+    jsonSchemaValidator = '3.0.0'
+}
+
+dependencies {
+    implementation "ch.qos.logback:logback-classic:${logbackVersion}",
+            "junit:junit:${junitVersion}",
+            "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+            "org.json:json:${jsonVersion}",
+            "io.rest-assured:json-schema-validator:${jsonSchemaValidator}",
+            "org.hamcrest:hamcrest-all:1.3"
+
+    testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-cucumber6:${serenityCucumberVersion}",
+            "net.serenity-bdd:serenity-screenplay:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-screenplay-webdriver:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-ensure:${serenityCoreVersion}",
+            "net.serenity-bdd:serenity-rest-assured:${serenityRestAssured}",
+            "io.rest-assured:json-schema-validator:${jsonSchemaValidator}",
+            "junit:junit:${junitVersion}",
+            "org.assertj:assertj-core:${assertJVersion}",
+            "org.json:json:${jsonVersion}"
+
+}
+
+test {
+    systemProperties System.getProperties()
+    testLogging.showStandardStreams = true
+    test.testLogging.showStandardStreams = true
+    include 'serenityRunners/TestRunner.class'
+
+}
+
+
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)

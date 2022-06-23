@@ -1,0 +1,136 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "Abstract": {"type": "string"},
+    "AbstractSource": {"type": "string"},
+    "AbstractText": {"type": "string"},
+    "AbstractURL": {"type": "string"},
+    "Answer": {"type": "string"},
+    "AnswerType": {"type": "string"},
+    "Definition": {"type": "string"},
+    "DefinitionSource": {"type": "string"},
+    "DefinitionURL": {"type": "string"},
+    "Entity": {"type": "string"},
+    "Heading": {"type": "string"},
+    "Image": {"type": "string"},
+    "ImageHeight": {"type": "integer"},
+    "ImageIsLogo": {"type": "integer"},
+    "ImageWidth": {"type": "integer"},
+    "Infobox": {"type": "string"},
+    "Redirect": {"type": "string"},
+    "RelatedTopics": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "FirstURL": {"type": "string"},
+            "Icon": {
+              "type": "object",
+              "properties": {
+                "Height": {"type": "string"},
+                "URL": {"type": "string"},
+                "Width": {"type": "string"}
+              },
+              "required": ["Height", "URL", "Width"]
+            },
+            "Result": {"type": "string"},
+            "Text": {"type": "string"}
+          },
+          "required": ["FirstURL", "Icon", "Result", "Text"]
+        }
+      ]
+    },
+    "Results": {
+      "type": "array",
+      "items": {}
+    },
+    "Type": {"type": "string"},
+    "meta": {
+      "type": "object",
+      "properties": {
+        "attribution": {
+          "type": "null"
+        },
+        "blockgroup": {"type": "null"},
+        "created_date": {"type": "null"},
+        "description": {"type": "string"},
+        "designer": {"type": "null"},
+        "dev_date": {"type": "null"},
+        "dev_milestone": {"type": "string"},
+        "developer": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "name": {"type": "string"},
+                "type": {"type": "string"},
+                "url": {"type": "string"}
+              },
+              "required": ["name", "type", "url"]
+            }
+          ]
+        },
+        "example_query": {"type": "string"},
+        "id": {"type": "string"},
+        "is_stackexchange": {"type": "null"},
+        "js_callback_name": {"type": "string"},
+        "live_date": {"type": "null"},
+        "maintainer": {
+          "type": "object",
+          "properties": {
+            "github": {
+              "type": "string"
+            }
+          },
+          "required": ["github"]
+        },
+        "name": {"type": "string"},
+        "perl_module": {"type": "string"},
+        "producer": {"type": "null"},
+        "production_state": {"type": "string"},
+        "repo": {"type": "string"},
+        "signal_from": {"type": "string"},
+        "src_domain": {"type": "string"},
+        "src_id": {"type": "integer"},
+        "src_name": {"type": "string"},
+        "src_options": {
+          "type": "object",
+          "properties": {
+            "directory": {"type": "string"},
+            "is_fanon": {"type": "integer"},
+            "is_mediawiki": {"type": "integer"},
+            "is_wikipedia": {"type": "integer"},
+            "language": {"type": "string"},
+            "min_abstract_length": {"type": "string"},
+            "skip_abstract": {"type": "integer"},
+            "skip_abstract_paren": {"type": "integer"},
+            "skip_end": {"type": "string"},
+            "skip_icon": {"type": "integer"},
+            "skip_image_name": {"type": "integer"},
+            "skip_qr": {"type": "string"},
+            "source_skip": {"type": "string"},
+            "src_info": {"type": "string"}
+          },
+          "required": ["directory", "is_fanon", "is_mediawiki", "is_wikipedia", "language", "min_abstract_length", "skip_abstract", "skip_abstract_paren", "skip_end", "skip_icon", "skip_image_name", "skip_qr", "source_skip", "src_info"]
+        },
+        "src_url": {"type": "null"},
+        "status": {"type": "string"},
+        "tab": {"type": "string"},
+        "topic": {
+          "type": "array",
+          "items": [
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "unsafe": {"type": "integer"}
+      },
+      "required": ["attribution", "blockgroup", "created_date", "description", "designer", "dev_date", "dev_milestone", "developer", "example_query", "id", "is_stackexchange", "js_callback_name", "live_date", "maintainer", "name", "perl_module", "producer", "production_state", "repo", "signal_from", "src_domain", "src_id", "src_name", "src_options", "src_url", "status", "tab", "topic", "unsafe"]
+    }
+  },
+  "required": ["Abstract", "AbstractSource", "AbstractText", "AbstractURL", "Answer", "AnswerType", "Definition", "DefinitionSource", "DefinitionURL", "Entity", "Heading", "Image", "ImageHeight", "ImageIsLogo", "ImageWidth", "Infobox", "Redirect", "RelatedTopics", "Results", "Type", "meta"]
+}
